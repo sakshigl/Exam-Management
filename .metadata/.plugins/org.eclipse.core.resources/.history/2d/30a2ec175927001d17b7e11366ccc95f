@@ -1,0 +1,22 @@
+package com.globallogic.examSystem.entity;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="admin")
+public class Admin {
+	
+	@Id
+	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	long id;
+	
+	@Column
+	String UserName;
+	
+	@Column
+	String Password;
+	
+	
+	
+
+}

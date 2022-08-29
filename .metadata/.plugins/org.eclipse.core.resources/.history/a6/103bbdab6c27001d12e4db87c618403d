@@ -1,0 +1,53 @@
+package com.globallogic.examSystem.ServiceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.globallogic.examSystem.Repo.ExamRepo;
+import com.globallogic.examSystem.Repo.StaffRepo;
+import com.globallogic.examSystem.Service.StaffService;
+import com.globallogic.examSystem.entity.Exam;
+import com.globallogic.examSystem.entity.Staff;
+
+@Service
+public class StaffServiceImpl implements StaffService {
+	
+	@Autowired
+     StaffRepo repo;
+	
+	@Autowired
+	ExamRepo erepo;
+
+	@Override
+	public List<Staff> getStaff() {
+		// TODO Auto-generated method stub
+		return repo.findAll();
+	}
+
+	@Override
+	public List<Staff> addStaff(Staff staff) {
+		// TODO Auto-generated method stub
+		Exam entity=erepo.findById(staff.getExam().getId()).get();
+		
+		staff.setExam(entity);
+		repo.save(staff);
+		return repo.findAll();
+	}
+
+	@Override
+	public void updateStaff(Staff staff) {
+		// TODO Auto-generated method stub
+		repo.save(staff);
+		
+	}
+
+	@Override
+	public void deleteStaff(long id) {
+		// TODO Auto-generated method stub
+		repo.deleteById(id);
+		
+	}
+
+}

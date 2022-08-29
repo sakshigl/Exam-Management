@@ -1,0 +1,28 @@
+package com.globallogic.examSystem.entity;
+
+import java.util.List;
+
+import javax.persistence.*;
+
+@Entity
+public class Student {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	long id;
+	
+	@Column
+	String name;
+	
+	@OneToMany
+	List<Subject> subject;
+	
+	@OneToOne
+	Exam exam;
+	
+	@OneToOne
+	Result result;
+	
+	
+
+}

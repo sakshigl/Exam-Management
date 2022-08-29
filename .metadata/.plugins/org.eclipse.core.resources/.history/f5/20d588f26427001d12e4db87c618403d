@@ -1,0 +1,19 @@
+package com.globallogic.examSystem.entity;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="exam")
+public class Exam {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	long id;
+	
+	@Column
+	String subject;
+	
+	
+	
+
+}

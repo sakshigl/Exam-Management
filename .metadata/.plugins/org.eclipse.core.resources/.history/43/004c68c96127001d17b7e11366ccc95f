@@ -1,0 +1,5 @@
+package com.globallogic.examSystem.ServiceImpl;
+
+public class AdminServiceImpl {
+
+}
